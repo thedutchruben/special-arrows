@@ -1,0 +1,8 @@
+name: SpecialArrows
+version: '${project.version}'
+main: nl.thedutchruben.specialarrows.Specialarrows
+api-version: 1.19
+authors: [ TheDutchRuben ]
+description: New arrows for your minecraft server
+commands:
+  specialarrows:
