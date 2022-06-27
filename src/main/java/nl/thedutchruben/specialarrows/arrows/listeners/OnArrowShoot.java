@@ -1,6 +1,6 @@
 package nl.thedutchruben.specialarrows.arrows.listeners;
 
-import nl.thedutchruben.mccore.listeners.TDRListener;
+import nl.thedutchruben.mccore.spigot.listeners.TDRListener;
 import nl.thedutchruben.specialarrows.Specialarrows;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
 import org.bukkit.ChatColor;

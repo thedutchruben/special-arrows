@@ -1,9 +1,8 @@
 package nl.thedutchruben.specialarrows.arrows.commands;
 
-import nl.thedutchruben.mccore.commands.Command;
-import nl.thedutchruben.mccore.commands.SubCommand;
+import nl.thedutchruben.mccore.spigot.commands.Command;
+import nl.thedutchruben.mccore.spigot.commands.SubCommand;
 import nl.thedutchruben.specialarrows.Specialarrows;
-import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

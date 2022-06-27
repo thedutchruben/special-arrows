@@ -1,6 +1,6 @@
 package nl.thedutchruben.specialarrows.arrows.listeners;
 
-import nl.thedutchruben.mccore.listeners.TDRListener;
+import nl.thedutchruben.mccore.spigot.listeners.TDRListener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;

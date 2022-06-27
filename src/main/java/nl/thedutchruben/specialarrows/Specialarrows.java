@@ -1,14 +1,12 @@
 package nl.thedutchruben.specialarrows;
 
 import nl.thedutchruben.mccore.Mccore;
-import nl.thedutchruben.mccore.commands.CommandRegistry;
-import nl.thedutchruben.mccore.commands.TabComplete;
+import nl.thedutchruben.mccore.spigot.commands.CommandRegistry;
 import nl.thedutchruben.mccore.config.UpdateCheckerConfig;
 import nl.thedutchruben.mccore.utils.config.FileManager;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
 import nl.thedutchruben.specialarrows.arrows.types.*;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -39,7 +37,7 @@ public final class Specialarrows extends JavaPlugin {
 
         config.copyDefaults(true).save();
         // Plugin startup logic
-        Mccore mccore = new Mccore(this,"specialarrows","62adf3511e02c441a5ce2b1a");
+        Mccore mccore = new Mccore(this,"specialarrows","62adf3511e02c441a5ce2b1a", Mccore.PluginType.SPIGOT);
         arrows.add(new ExplosionArrow());
         arrows.add(new FireArrow());
         arrows.add(new RocketArrow());
