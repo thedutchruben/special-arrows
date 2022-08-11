@@ -2,12 +2,15 @@ package nl.thedutchruben.specialarrows.arrows.types;
 
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.logging.Level;
 
 public class ExplosionArrow extends SpecialArrow {
     public ExplosionArrow() {

@@ -38,6 +38,7 @@ public final class Specialarrows extends JavaPlugin {
         config.copyDefaults(true).save();
         // Plugin startup logic
         Mccore mccore = new Mccore(this,"specialarrows","62adf3511e02c441a5ce2b1a", Mccore.PluginType.SPIGOT);
+
         arrows.add(new ExplosionArrow());
         arrows.add(new FireArrow());
         arrows.add(new RocketArrow());
