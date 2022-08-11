@@ -55,6 +55,10 @@
 
     <repositories>
         <repository>
+            <id>thedutchruben-repo</id>
+            <url>https://repo.thedutchruben.nl/repository/maven-public/</url>
+        </repository>
+        <repository>
             <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
@@ -74,7 +78,7 @@
         <dependency>
             <groupId>nl.thedutchruben</groupId>
             <artifactId>mccore</artifactId>
-            <version>1.1.1</version>
+            <version>1.2.2</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
