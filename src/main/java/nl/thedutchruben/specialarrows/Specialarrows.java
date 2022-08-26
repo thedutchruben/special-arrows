@@ -24,10 +24,6 @@ public final class Specialarrows extends JavaPlugin {
         instance = this;
         FileManager.Config config = fileManager.getConfig("config.yml");
         FileConfiguration configfileConfiguration = config.get();
-        configfileConfiguration.options().header("TDR Playtime Plugin " +
-                "\nhttps://www.spigotmc.org/resources/tdrplaytime.47894/ \n" +
-                "Change the language to one of the other files default it has nl_NL.yml and en_GB.yml, " +
-                "you can create your own language file");
         configfileConfiguration.addDefault("settings.update_check", true);
         configfileConfiguration.addDefault("settings.update_checktime", 20*60*5);
         configfileConfiguration.addDefault("arrows.explosionarrow.blockDamage", true);
@@ -57,7 +53,9 @@ public final class Specialarrows extends JavaPlugin {
             return completions;
         });
 
-        mccore.startUpdateChecker(new UpdateCheckerConfig("specialarrows.update",5*60*20));
+        if(configfileConfiguration.getBoolean("settings.update_check")) {
+            mccore.startUpdateChecker(new UpdateCheckerConfig("specialarrows.update",configfileConfiguration.getInt("settings.update_checktime")));
+        }
     }
 
     @Override
