@@ -51,6 +51,6 @@ public class SnowballArrow extends SpecialArrow {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.ARROW).displayname("§bSnowball Arrow").lore("§7" + getDescription()).build();
+        return new ItemBuilder(Material.ARROW).displayname(ChatColor.WHITE + "Snowball Arrow").lore("§7" + getDescription()).build();
     }
 }

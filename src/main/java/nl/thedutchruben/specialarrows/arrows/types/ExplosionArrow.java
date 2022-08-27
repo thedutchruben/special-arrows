@@ -3,6 +3,7 @@ package nl.thedutchruben.specialarrows.arrows.types;
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Arrow;
@@ -29,6 +30,6 @@ public class ExplosionArrow extends SpecialArrow {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.ARROW).displayname("§4Explosion Arrow").lore("§7" + getDescription()).build();
+        return new ItemBuilder(Material.ARROW).displayname(ChatColor.RED + "Explosion Arrow").lore("§7" + getDescription()).build();
     }
 }

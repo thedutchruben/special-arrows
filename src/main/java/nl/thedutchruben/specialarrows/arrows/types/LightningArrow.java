@@ -2,6 +2,7 @@ package nl.thedutchruben.specialarrows.arrows.types;
 
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
@@ -26,6 +27,6 @@ public class LightningArrow extends SpecialArrow {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.ARROW).displayname("§bLightning Arrow").lore("§7" + getDescription()).build();
+        return new ItemBuilder(Material.ARROW).displayname(ChatColor.AQUA + "Lightning Arrow").lore("§7" + getDescription()).build();
     }
 }

@@ -36,7 +36,7 @@ public class RocketArrow extends SpecialArrow {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.ARROW).displayname("§aRocket Arrow").lore("§7" + getDescription()).build();
+        return new ItemBuilder(Material.ARROW).displayname(ChatColor.DARK_RED + "Rocket "+ChatColor.WHITE +"Arrow").lore("§7" + getDescription()).build();
     }
 
     public static void spawnFireworks(Location location, int amount){

@@ -2,10 +2,7 @@ package nl.thedutchruben.specialarrows.arrows.types;
 
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
-import org.bukkit.Color;
-import org.bukkit.FireworkEffect;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
@@ -52,6 +49,6 @@ public class FireworkArrow extends SpecialArrow {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.ARROW).displayname("§bFirework Arrow").lore("§7" + getDescription()).build();
+        return new ItemBuilder(Material.ARROW).displayname(ChatColor.RED + "Firework "+ChatColor.WHITE+"Arrow").lore("§7" + getDescription()).build();
     }
 }

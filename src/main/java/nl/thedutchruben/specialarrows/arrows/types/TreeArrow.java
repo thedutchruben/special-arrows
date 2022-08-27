@@ -2,6 +2,7 @@ package nl.thedutchruben.specialarrows.arrows.types;
 
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.TreeType;
@@ -34,6 +35,6 @@ public class TreeArrow extends SpecialArrow {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.ARROW).displayname("§bTree Arrow").lore("§7" + getDescription()).build();
+        return new ItemBuilder(Material.ARROW).displayname(ChatColor.DARK_GREEN + "Tree Arrow").lore("§7" + getDescription()).build();
     }
 }

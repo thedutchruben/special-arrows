@@ -2,6 +2,7 @@ package nl.thedutchruben.specialarrows.arrows.types;
 
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Arrow;
@@ -32,6 +33,6 @@ public class TeleportArrow extends SpecialArrow {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.ARROW).displayname("§bTeleport Arrow").lore("§7" + getDescription()).build();
+        return new ItemBuilder(Material.ARROW).displayname(ChatColor.DARK_PURPLE + "Teleport Arrow").lore("§7" + getDescription()).build();
     }
 }

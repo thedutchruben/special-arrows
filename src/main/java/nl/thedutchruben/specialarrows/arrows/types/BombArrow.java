@@ -4,6 +4,7 @@ import nl.thedutchruben.mccore.utils.item.ItemBuilder;
 import nl.thedutchruben.specialarrows.Specialarrows;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
@@ -47,7 +48,8 @@ public class BombArrow extends SpecialArrow {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.ARROW).displayname("§bBomb Arrow").lore("§7" + getDescription()).build();
+        return new ItemBuilder(Material.ARROW).displayname(ChatColor.BOLD+ ""
+                 + ChatColor.DARK_RED + "Bomb Arrow").lore("§7" + getDescription()).build();
     }
 
 }
