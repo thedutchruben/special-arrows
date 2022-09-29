@@ -28,7 +28,7 @@ public final class Specialarrows extends JavaPlugin {
         configfileConfiguration.addDefault("settings.update_checktime", 20*60*5);
         configfileConfiguration.addDefault("arrows.explosionarrow.blockDamage", true);
         configfileConfiguration.addDefault("arrows.explosionarrow.fire", true);
-        configfileConfiguration.addDefault("arrows.explosionarrow.range", 5);
+        configfileConfiguration.addDefault("arrows.explosionarrow.power", 3);
         configfileConfiguration.addDefault("arrows.snowballarrow.removeTime", 20*5);
 
         config.copyDefaults(true).save();
