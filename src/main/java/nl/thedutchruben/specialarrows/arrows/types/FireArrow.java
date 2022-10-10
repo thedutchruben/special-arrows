@@ -1,6 +1,8 @@
 package nl.thedutchruben.specialarrows.arrows.types;
 
+import nl.thedutchruben.mccore.utils.config.FileManager;
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
+import nl.thedutchruben.specialarrows.Specialarrows;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -13,13 +15,15 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class FireArrow extends SpecialArrow {
+    private FileManager.Config config = Specialarrows.getInstance().getFileManager().getConfig("config.yml");
+
     public FireArrow() {
         super("Fire Arrow", "This arrow will set fire to blocks when it hits them");
     }
 
     @Override
     public void onHit(Arrow arrow, ProjectileHitEvent event) {
-        circle(arrow.getLocation(), 5, Material.FIRE);
+        circle(arrow.getLocation(), config.get().getInt("arrows.firewarrow.radius", 5), Material.FIRE);
         arrow.getWorld().playSound(arrow.getLocation(), "fire.ignite", 3, 1);
     }
 
@@ -46,8 +50,8 @@ public class FireArrow extends SpecialArrow {
 
     @Override
     public void onShoot(Arrow arrow, Player player) {
-        player.getLocation().getWorld().playSound(player.getLocation(), "fire.ignite", 3, 1);
-        player.getLocation().getWorld().spawnParticle(org.bukkit.Particle.FLAME, player.getLocation(), 10, 1, 1, 1, 0.5);
+        player.getLocation().getWorld().playSound(player.getLocation(), "fire.ignite", config.get().getInt("arrows.firewarrow.sound.volume", 5), 1);
+        player.getLocation().getWorld().spawnParticle(org.bukkit.Particle.FLAME, player.getLocation(), config.get().getInt("arrows.firewarrow.paricle.count", 5), 1, 1, 1, 0.5);
     }
 
     @Override

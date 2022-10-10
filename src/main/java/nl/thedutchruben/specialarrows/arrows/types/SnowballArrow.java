@@ -1,5 +1,6 @@
 package nl.thedutchruben.specialarrows.arrows.types;
 
+import nl.thedutchruben.mccore.utils.config.FileManager;
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
 import nl.thedutchruben.specialarrows.Specialarrows;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
@@ -17,10 +18,11 @@ public class SnowballArrow extends SpecialArrow {
 
     @Override
     public void onHit(Arrow arrow, ProjectileHitEvent event) {
+        FileManager.Config config = Specialarrows.getInstance().getFileManager().getConfig("config.yml");
         //create ice around hit location
         event.getEntity().getWorld().playSound(event.getEntity().getLocation(), Sound.ENTITY_SNOWBALL_THROW, 1, 1);
         event.getEntity().getWorld().spawnParticle(org.bukkit.Particle.SNOW_SHOVEL, event.getEntity().getLocation(), 10);
-        circle(event.getEntity().getLocation(),3, Material.SNOW_BLOCK);
+        circle(event.getEntity().getLocation(),config.get().getInt("arrows.snowballarrow.removeTime",20*5), Material.SNOW_BLOCK);
     }
 
     public void circle(Location blockLocation, int radius, Material material) {

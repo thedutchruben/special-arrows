@@ -6,6 +6,8 @@ import nl.thedutchruben.mccore.config.UpdateCheckerConfig;
 import nl.thedutchruben.mccore.utils.config.FileManager;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
 import nl.thedutchruben.specialarrows.arrows.types.*;
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,6 +23,7 @@ public final class Specialarrows extends JavaPlugin {
     private FileManager fileManager = new FileManager(this);
     @Override
     public void onEnable() {
+        Metrics metrics = new Metrics(this, 16620);
         instance = this;
         FileManager.Config config = fileManager.getConfig("config.yml");
         FileConfiguration configfileConfiguration = config.get();
@@ -29,7 +32,14 @@ public final class Specialarrows extends JavaPlugin {
         configfileConfiguration.addDefault("arrows.explosionarrow.blockDamage", true);
         configfileConfiguration.addDefault("arrows.explosionarrow.fire", true);
         configfileConfiguration.addDefault("arrows.explosionarrow.power", 3);
+        configfileConfiguration.addDefault("arrows.explosionarrow.particle.count", 3);
+        configfileConfiguration.addDefault("arrows.firewarrow.radius", 5);
+        configfileConfiguration.addDefault("arrows.firewarrow.sound.volume", 3);
+        configfileConfiguration.addDefault("arrows.firewarrow.paricle.count", 3);
+
         configfileConfiguration.addDefault("arrows.snowballarrow.removeTime", 20*5);
+        configfileConfiguration.addDefault("arrows.bombarrow.arrows", 5);
+        configfileConfiguration.addDefault("arrows.bombarrow.time", 20 * 1.5);
 
         config.copyDefaults(true).save();
         // Plugin startup logic
@@ -56,11 +66,22 @@ public final class Specialarrows extends JavaPlugin {
         if(configfileConfiguration.getBoolean("settings.update_check")) {
             mccore.startUpdateChecker(new UpdateCheckerConfig("specialarrows.update",configfileConfiguration.getInt("settings.update_checktime")));
         }
+
+        metrics.addCustomChart(new SimplePie("download_source", DownloadSource.GITHUB::name));
+        metrics.addCustomChart(new SimplePie("update_checker", () ->  configfileConfiguration.getBoolean("settings.update_check",true) ? "enabled" : "disabled"));
+        metrics.addCustomChart(new SimplePie("explosionarrow_blockdamage", () ->  configfileConfiguration.getBoolean("arrows.explosionarrow.blockDamage",true) ? "enabled" : "disabled"));
+
+    }
+
+    public FileManager getFileManager() {
+        return fileManager;
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        arrows.clear();
+
     }
 
     public List<SpecialArrow> getArrows() {
@@ -69,5 +90,11 @@ public final class Specialarrows extends JavaPlugin {
 
     public static Specialarrows getInstance() {
         return instance;
+    }
+
+    enum DownloadSource {
+        SPIGOT,
+        BUKKIT,
+        GITHUB
     }
 }

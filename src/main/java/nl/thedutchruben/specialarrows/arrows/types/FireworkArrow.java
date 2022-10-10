@@ -1,6 +1,8 @@
 package nl.thedutchruben.specialarrows.arrows.types;
 
+import nl.thedutchruben.mccore.utils.config.FileManager;
 import nl.thedutchruben.mccore.utils.item.ItemBuilder;
+import nl.thedutchruben.specialarrows.Specialarrows;
 import nl.thedutchruben.specialarrows.arrows.SpecialArrow;
 import org.bukkit.*;
 import org.bukkit.entity.Arrow;
@@ -14,6 +16,7 @@ import org.bukkit.inventory.meta.FireworkMeta;
 import java.util.Random;
 
 public class FireworkArrow extends SpecialArrow {
+
     public FireworkArrow() {
         super("Firework Arrow", "This arrow will spawn a firework");
     }
