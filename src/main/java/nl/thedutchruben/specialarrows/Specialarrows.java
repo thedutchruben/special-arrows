@@ -29,6 +29,7 @@ public final class Specialarrows extends JavaPlugin {
         FileConfiguration configfileConfiguration = config.get();
         configfileConfiguration.addDefault("settings.update_check", true);
         configfileConfiguration.addDefault("settings.update_checktime", 20*60*5);
+
         configfileConfiguration.addDefault("arrows.explosionarrow.blockDamage", true);
         configfileConfiguration.addDefault("arrows.explosionarrow.fire", true);
         configfileConfiguration.addDefault("arrows.explosionarrow.power", 3);
@@ -67,7 +68,7 @@ public final class Specialarrows extends JavaPlugin {
             mccore.startUpdateChecker(new UpdateCheckerConfig("specialarrows.update",configfileConfiguration.getInt("settings.update_checktime")));
         }
 
-        metrics.addCustomChart(new SimplePie("download_source", DownloadSource.GITHUB::name));
+        metrics.addCustomChart(new SimplePie("download_source", DownloadSource.BUKKIT::name));
         metrics.addCustomChart(new SimplePie("update_checker", () ->  configfileConfiguration.getBoolean("settings.update_check",true) ? "enabled" : "disabled"));
         metrics.addCustomChart(new SimplePie("explosionarrow_blockdamage", () ->  configfileConfiguration.getBoolean("arrows.explosionarrow.blockDamage",true) ? "enabled" : "disabled"));
 

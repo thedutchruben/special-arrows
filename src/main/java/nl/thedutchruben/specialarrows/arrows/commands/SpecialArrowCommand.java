@@ -11,10 +11,10 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
-@Command(command = "specialarrows", description = "This command will give you all the special arrows")
+@Command(command = "specialarrows", permission = "specialarrows.commands.specialarrows",description = "This command will give you all the special arrows")
 public class SpecialArrowCommand {
 
-    @SubCommand(subCommand = "give", usage = "<player> <specialarrows> <amount>", minParams = 4,maxParams = 4)
+    @SubCommand(subCommand = "give", usage = "<player> <specialarrows> <amount>", minParams = 4,maxParams = 4,permission = "specialarrows.commands.give")
     public void give(CommandSender sender, List<String> args) {
         Player player = Bukkit.getPlayer(args.get(1));
         Specialarrows.getInstance().getArrows().stream().filter(arrow -> ChatColor.stripColor(arrow.getName()).equalsIgnoreCase(args.get(2).replace("_"," "))).forEach(arrow -> {
@@ -24,7 +24,7 @@ public class SpecialArrowCommand {
         });
     }
 
-    @SubCommand(subCommand = "get", usage = "<specialarrows>", minParams = 2,maxParams = 2)
+    @SubCommand(subCommand = "get", usage = "<specialarrows>", minParams = 2,maxParams = 2 ,permission = "specialarrows.commands.specialarrows.get")
     public void get(CommandSender player, List<String> params) {
         Specialarrows.getInstance().getArrows().stream().filter(arrow -> ChatColor.stripColor(arrow.getName()).equalsIgnoreCase(params.get(1).replace("_"," "))).forEach(arrow -> ((Player)player).getInventory().addItem(arrow.getItem()));
     }
